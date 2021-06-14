@@ -33,4 +33,4 @@ def get_guess(x):
     print("Sorry .. you lost the game.. Thanks for playing..")
 
 #function call.. #
-get_guess(10)
+get_guess(x)
