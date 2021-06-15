@@ -1,7 +1,8 @@
 import random
 
 
-#main game function#
+# Part 1: source code for human guessing the secret number created by computer...
+# main game function...
 def get_guess(x):
     guess = 0
     random_number = random.randint(1,x)
@@ -24,13 +25,41 @@ def get_guess(x):
             else:
                 num_already_entered = False
                 print("OOPS... This number was entered previously.. please try different lower number")
-
         else:
-            print("Yay!!... congratulations.. you have guessed the correct number")
+            print("Congratulations you have won the game")
             break
-
         guess_count += 1
-    print("Sorry .. you lost the game.. Thanks for playing..")
 
-#function call.. #
+    else:
+        print("Sorry you lost the game")
+
+
+
+
+# function call..
 get_guess(x)
+
+# source code for computer guessing the secret number thought by human..
+print('''
+NOw the game of computer vs human.. 
+''')
+
+def computer_guess(y):
+    lower_boundary = 1
+    higher_boundary = y
+    human_response = ""
+
+    while human_response != "correct":
+        guess = random.randint(lower_boundary, higher_boundary)
+        human_response = input(f"Is the computer guess of {guess} too High, too Low, or Correct? :").lower()
+
+        if human_response == "high":
+            higher_boundary = guess -1
+        elif human_response == "low":
+            lower_boundary = guess +1
+
+    print("Yay.. congrats to the computer, you beat the human player...")
+
+
+computer_guess(y)
+
